@@ -10,10 +10,10 @@ class ArtistaReadSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Artista
-        fields = ("id", "nome", "sobre", "pais", "data_nascimento")
+        fields = ("id", "nome", "sobre", "pais", "data_nascimento", "imagem")
 
 
 class ArtistaWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Artista
-        fields = ("nome", "sobre", "pais", "data_nascimento")
+        fields = ("nome", "sobre", "pais", "data_nascimento", "imagem")

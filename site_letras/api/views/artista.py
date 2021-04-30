@@ -27,6 +27,10 @@ def nome(queryset, filtro, nome):
     return queryset
 
 
+def nome_exato(queryset, filtro, nome):
+    return queryset.filter(nome=nome)
+
+
 def ordem_alfabetica(queryset, filter, ordem):
     if ordem == True:
         return queryset.order_by("nome")
@@ -35,6 +39,7 @@ def ordem_alfabetica(queryset, filter, ordem):
 
 class ArtistaFilter(django_filters.FilterSet):
     nome = django_filters.CharFilter(method=nome)
+    nome_exato = django_filters.CharFilter(method=nome_exato, label="Nome exato")
     ordem_alfabetica = django_filters.BooleanFilter(
         method=ordem_alfabetica, label="Ordem alfabética"
     )
