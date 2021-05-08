@@ -57,3 +57,5 @@ class ArtistaViewSet(ReadWriteSerializerMixin, viewsets.ModelViewSet):
 
     filter_backends = [DjangoFilterBackend]
     filter_class = ArtistaFilter
+
+    http_method_names = ["get"]

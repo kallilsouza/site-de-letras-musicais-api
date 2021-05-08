@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-7ck+6kp7z%ar^$-7k-x9*f66y&6c1so#r-c2$pg51ysz(hyv#k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost"]
 
 
 # Application definition
@@ -54,12 +54,20 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+renders_classes = [
+    "rest_framework.renderers.JSONRenderer",
+]
+
+if DEBUG == True:
+    renders_classes.append("rest_framework.renderers.BrowsableAPIRenderer")
+
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 20,
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework.authentication.BasicAuthentication"
     ],
+    "DEFAULT_RENDERER_CLASSES": renders_classes,
 }
 
 CORS_ORIGIN_ALLOW_ALL = False

@@ -64,3 +64,5 @@ class CancaoViewSet(ReadWriteSerializerMixin, viewsets.ModelViewSet):
 
     filter_backends = [DjangoFilterBackend]
     filter_class = CancaoFilter
+
+    http_method_names = ["get"]
