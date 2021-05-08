@@ -4,7 +4,6 @@ from .models import *
 
 
 admin.site.register(Artista)
-admin.site.register(Grupo)
 admin.site.register(Cancao)
 admin.site.register(Album)
 admin.site.register(Faixa)

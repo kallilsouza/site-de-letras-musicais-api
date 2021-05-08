@@ -2,13 +2,11 @@ from django.db import models
 
 from .artista import Artista
 from .genero import Genero
-from .grupo import Grupo
 
 
 class Album(models.Model):
     nome = models.CharField(max_length=100)
     artista = models.ForeignKey(Artista, on_delete=models.CASCADE)
-    grupo = models.ForeignKey(Grupo, on_delete=models.SET_NULL, null=True, blank=True)
     data_lancamento = models.DateField(blank=True, null=True)
     genero = models.ForeignKey(Genero, blank=True, null=True, on_delete=models.SET_NULL)
     tipos = (
@@ -19,8 +17,6 @@ class Album(models.Model):
 
     def __str__(self):
         dono = self.artista
-        if self.grupo:
-            dono = self.grupo
 
         ano = ""
         if self.data_lancamento:

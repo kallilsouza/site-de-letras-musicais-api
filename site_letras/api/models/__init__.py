@@ -4,4 +4,3 @@ from .artista import Artista
 from .album import Album
 from .cancao import Cancao
 from .faixa import Faixa
-from .grupo import Grupo

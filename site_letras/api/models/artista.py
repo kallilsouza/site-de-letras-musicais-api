@@ -4,7 +4,7 @@ from .pais import Pais
 
 
 class Artista(models.Model):
-    nome = models.CharField(max_length=100)
+    nome = models.CharField(max_length=100, unique=True)
     pais = models.ForeignKey(Pais, on_delete=models.SET_NULL, blank=True, null=True)
     sobre = models.TextField(blank=True, null=True)
     data_nascimento = models.DateField(blank=True, null=True)

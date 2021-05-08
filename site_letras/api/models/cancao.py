@@ -2,7 +2,6 @@ from django.db import models
 
 
 from .artista import Artista
-from .grupo import Grupo
 
 
 class Cancao(models.Model):
@@ -11,7 +10,6 @@ class Cancao(models.Model):
         Artista, on_delete=models.CASCADE, blank=True, null=True
     )
     artistas = models.ManyToManyField(Artista, related_name="artistas")
-    grupo = models.ForeignKey(Grupo, on_delete=models.SET_NULL, blank=True, null=True)
     data_lancamento = models.DateField(blank=True, null=True)
 
     letra = models.TextField()
